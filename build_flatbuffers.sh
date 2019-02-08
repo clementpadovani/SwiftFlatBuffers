@@ -26,7 +26,7 @@ do
 	for k in `ls $dir`
 	do
 		if [ ${k##*.} == 'fbs' ] ; then 
-			path=" -sw ""${k}"
+			path=" -sw ""${k}"" --sw-namespace"
 			command=`${fp}${path}`
 			$command
 		fi
