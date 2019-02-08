@@ -67,7 +67,7 @@ namespace flatbuffers {
             "    ",
             "// MARK: ",
             ": ",
-            "type"
+            "_type"
         };
         
         static std::string GeneratedFileName(const std::string &path,
@@ -505,7 +505,7 @@ namespace flatbuffers {
             }
             if (enum_def.underlying_type.base_type == BASE_TYPE_UTYPE) {
                 code += language_parameters.indent;
-                code += "internal var type: FBTable.Type?";
+                code += "internal var _type: FBTable.Type?";
                 code += language_parameters.open_curly;
                 code += language_parameters.indent;
                 code += language_parameters.indent;
@@ -569,7 +569,7 @@ namespace flatbuffers {
                 code += language_parameters.open_curly;
                 
                 GenIndent(code_ptr, 3);
-                code += "if type(of: ins!) == value.type";
+                code += "if type(of: ins!) == value._type";
                 code += language_parameters.open_curly;
                 GenIndent(code_ptr, 4);
                 code += "return value\n";
@@ -745,6 +745,7 @@ namespace flatbuffers {
             "super",
             "self",
             "Self",
+            "type",
             "Type",
             "associativity",
             "didSet",
