@@ -27,7 +27,7 @@ public enum MyGame_Example_Any: UInt8 {
 
     case MYGAME_EXAMPLE2_MONSTER = 3
 
-    internal var type: FBTable.Type? {
+    internal var _type: FBTable.Type? {
         switch self {
         case .NONE:
             return nil
@@ -47,7 +47,7 @@ public enum MyGame_Example_Any: UInt8 {
             return .NONE
         }
         for value in allValues {
-            if type(of: ins!) == value.type {
+            if type(of: ins!) == value._type {
                 return value
             }
         }
@@ -340,7 +340,7 @@ public final class MyGame_Example_Monster: FBTable {
     }()
 
     fileprivate final lazy var test_type: FBTable.Type? = {
-        return MyGame_Example_Any(rawValue: self.getUInt8(vOffset: 18))?.type
+        return MyGame_Example_Any(rawValue: self.getUInt8(vOffset: 18))?._type
     }()
 
     public final lazy var test: FBTable? = {

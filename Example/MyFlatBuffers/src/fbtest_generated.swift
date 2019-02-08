@@ -25,7 +25,7 @@ public enum `Any`: UInt8 {
 
     case STAT = 2
 
-    internal var type: FBTable.Type? {
+    internal var _type: FBTable.Type? {
         switch self {
         case .NONE:
             return nil
@@ -43,7 +43,7 @@ public enum `Any`: UInt8 {
             return .NONE
         }
         for value in allValues {
-            if type(of: ins!) == value.type {
+            if type(of: ins!) == value._type {
                 return value
             }
         }
@@ -251,7 +251,7 @@ public final class Monster: FBTable {
     }()
 
     fileprivate final lazy var test_type: FBTable.Type? = {
-        return `Any`(rawValue: self.getUInt8(vOffset: 26))?.type
+        return `Any`(rawValue: self.getUInt8(vOffset: 26))?._type
     }()
 
     public final lazy var test: FBTable? = {
